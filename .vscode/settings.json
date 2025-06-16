@@ -1,3 +1,22 @@
 {
-    "sqltools.useNodeRuntime": true
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "oracleOptions": {
+                "privilege": "Normal",
+                "thickMode": true,
+                "autoCommit": false,
+                "lowerCase": false,
+                "limitPrefetchRows": false
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1521,
+            "driver": "Oracle",
+            "name": "OracleXE_Local_ExamPrep",
+            "database": "XE",
+            "username": "system",
+            "password": "Blurrykatt11"
+        }
+    ]
 }

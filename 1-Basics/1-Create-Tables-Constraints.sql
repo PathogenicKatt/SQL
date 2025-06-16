@@ -20,7 +20,7 @@ CREATE TABLE employees (
     email_address VARCHAR(50) UNIQUE NOT NULL, -- Unique email address for the employee
     hire_date DATE NOT NULL, -- Date when the employee was hired
     job_title VARCHAR(50) NOT NULL, -- Job title of the employee
-    salary DECIMAL(10, 2) CHECK (salary > 0),-- Salary of the employee, must be positive , and the DECIMAL type allows for 10 fixed-point numbers with two decimal places
+    salary NUMBER(10, 2) CHECK (salary > 0),-- Salary of the employee, must be positive , and the DECIMAL type allows for 10 fixed-point numbers with two decimal places
     -- ANSWERS: For Challenge 1
     department_id INT, -- Foreign key to the 'departments' table
     FOREIGN KEY (department_id) REFERENCES departments(department_id) -- Foreign key constraint to ensure referential integrity)
@@ -32,38 +32,28 @@ CREATE TABLE employees (
 -- 📌 Exam Tip: ALTER is for changing existing tables (like renovating a house).
 
 -- Add a new column 'birth_date' to the 'employees' table
-ALTER TABLE employees
-ADD birth_date DATE; -- Adding a new column for employee's birth date
+ALTER TABLE employees ADD birth_date DATE; -- Adding a new column for employee's birth date
 
 -- Add a new column 'phone_number' to the 'employees` table
-ALTER TABLE employees
-ADD phone_number VARCHAR2(15); 
+ALTER TABLE employees ADD phone_number VARCHAR2(15); 
 
 -- Modify an existing column 'email_adress' from the 'employees' table to increase the number of characters allowed 
-ALTER TABLE employees
-MODIFY email_address VARCHAR2(100); -- Increasing the size of the email address column to 100 characters
+ALTER TABLE employees MODIFY email_address VARCHAR2(100); 
 
--- ⚠ Common Mistake: Trying to MODIFY a column with data that violates new constraints!
 
 -- 🗝️ 3. CONSTRAINTS DEEP DIVE
 -- 📌 Exam Tip: Constraints enforce rules on data in tables (like traffic rules for data).
 
 -- A) CHECK (Custom rules)
 -- 📌 Exam Tip: CHECK constraints validate data against a condition.
-ALTER TABLE employees
-ADD CONSTRAINT chk_salary CHECK (salary < 100000); -- No one earns more than 100k here! 😅
+ALTER TABLE employees ADD CONSTRAINT chk_salary CHECK (salary < 100000); -- No one earns more than 100k here! 😅
 
 -- B) UNIQUE (No duplicates, but NULLs allowed)
-ALTER TABLE employees
-ADD CONSTRAINT unique_email UNIQUE (email_address); -- Ensuring no two employees have the same email address
 
-ALTER TABLE employees
-ADD CONSTRAINT uniq_phone UNIQUE (phone_number); -- Ensuring no two employees have the same phone number
+ALTER TABLE employees ADD CONSTRAINT uniq_phone UNIQUE (phone_number); -- Ensuring no two employees have the same phone number
 
 -- 🧩 Challenge 2: Add a CHECK constraint to ensure 'hire_date' is not in the future.
--- Hint: Use SYSDATE to compare with the current date.
-ALTER TABLE employees
-ADD CONSTRAINT chk_hire_date CHECK (hire_date <= SYSDATE); -- Ensuring hire date is not in the future
+
 
 -- 🗃️ 4. INSERT DATA (Testing My Constraints)
 -- 📌 Exam Tip: Constraints are validated during INSERT/UPDATE.
