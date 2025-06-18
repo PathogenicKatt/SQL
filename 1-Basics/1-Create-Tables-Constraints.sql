@@ -141,6 +141,21 @@ INSERT INTO employees VALUES(
     '1234567890' -- phone_number
 );
 
+INSERT INTO employees VALUES(
+    6,
+    'Tumi',
+    'Mathibela',
+    't.mathibela@company.com',
+    TO_DATE('15-APR-2023', 'DD-MON-YYYY'),
+    'Software Engineer',
+    80000.00,
+    3,
+    TO_DATE('31-JAN-1997', 'DD-MON-YYYY'),
+    '8329811132'
+    
+);
+
+
 -- 📜 5. DROP TABLE 
 -- 📌 Exam Tip: Use DROP TABLE to remove a table and all its data.
 -- 📌 Exam Tip: Be careful! This action cannot be undone.
