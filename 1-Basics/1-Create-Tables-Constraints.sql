@@ -26,6 +26,16 @@ CREATE TABLE employees (
     FOREIGN KEY (department_id) REFERENCES departments(department_id) -- Foreign key constraint to ensure referential integrity)
 );
 
+CREATE TABLE projects (
+    project_id INT PRIMARY KEY, -- Unique identifier for each project
+    project_name VARCHAR2(50) NOT NULL, -- Name of the project
+    start_date DATE NOT NULL, -- Start date of the project
+    end_date DATE, -- End date of the project (can be NULL if ongoing)
+    budget NUMBER(15,2) CHECK (budget >= 0), -- Budget for the project, must be non-negative
+    department_id INT, -- Foreign key to the 'departments' table
+    FOREIGN KEY (department_id) REFERENCES departments(department_id) -- Foreign key constraint to ensure referential integrity
+);
+
 
 -- 🔄 2. ALTER TABLE (Modifying Structure)
 -- 📌 Exam Tip: Use the keyword ALTER TABLE to add, modify, or drop columns and constraints.
@@ -154,6 +164,43 @@ INSERT INTO employees VALUES(
     '8329811132'
     
 );
+
+INSERT INTO projects VALUES (
+    1,
+    'Project Alpha',
+    TO_DATE('01-JAN-2024', 'DD-MON-YYYY'),
+    TO_DATE('31-DEC-2024', 'DD-MON-YYYY'),
+    100000.00,
+    3 -- department_id
+);
+
+INSERT INTO projects VALUES (
+    2,
+    'Project Beta',
+    TO_DATE('01-FEB-2024', 'DD-MON-YYYY'),
+    NULL, -- Ongoing project
+    50000.00,
+    1 -- department_id
+);
+
+INSERT INTO projects VALUES(
+    3,
+    'Project Gamma',
+    TO_DATE('01-MAR-2024', 'DD-MON-YYYY'),
+    TO_DATE('30-NOV-2024', 'DD-MON-YYYY'),
+    75000.00,
+    2 -- department_id
+);
+
+INSERT INTO projects VALUES(
+    4,
+    'Project Delta',
+    TO_DATE('01-APR-2024', 'DD-MON-YYYY'),
+    NULL, -- Ongoing project
+    60000.00,
+    3 -- department_id
+);
+ 
 
 
 -- 📜 5. DROP TABLE 
