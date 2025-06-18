@@ -11,7 +11,7 @@ Each file contains practical examples, comments, and challenges.
 | [3-Advanced-SQL](/3-Advanced-SQL) | Subqueries, Transactions, Bulk Data Manipulation | Solve complex problems efficiently |
 
 ## 🛠 How to Use
-1. **Run in VSCode**: Use [SQLTools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools) + a database driver.
+1. **Run in VSCode**: Use [SQLTools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools) + ORACLE driver.
 2. **Study Flow**:
    - Open a `.sql` file.
    - Read comments (📌 **Exam Tip**, ⚠ **Common Mistake**).
