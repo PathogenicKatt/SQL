@@ -16,9 +16,5 @@ Each file contains practical examples, comments, and challenges.
    - Open a `.sql` file.
    - Read comments (📌 **Exam Tip**, ⚠ **Common Mistake**).
    - Execute queries, tweak them, break/fix them!
-3. **Need Help?** Open an Issue or PR suggestions!
-
----
 
 📌 **Pro Tip**: Pair this with flashcards (Anki) for theory!  
-💡 **Exam Day Mindset**: "I wrote this code. I own this topic."
