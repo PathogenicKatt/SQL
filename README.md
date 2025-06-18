@@ -1,4 +1,4 @@
-# 🚀 SQL Exam Prep
+# 🚀 ORACLE SQL Exam Prep
 
 Each file contains practical examples, comments, and challenges.
 
