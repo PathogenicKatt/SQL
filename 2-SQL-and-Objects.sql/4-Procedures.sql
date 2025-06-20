@@ -12,5 +12,8 @@ BEGIN
 END;
 /
 
+-- Turn on output to see results from DBMS_OUTPUT.PUT_LINE
+SET SERVEROUTPUT ON;
+
 --To call (execute) a procedure in Oracle SQL, use the EXECUTE (or EXEC) command, or call it in an anonymous PL/SQL block.
 EXECUTE get_employees_by_department(2);
