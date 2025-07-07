@@ -6,7 +6,7 @@
 SELECT first_name, last_name, salary
 FROM employees e
 WHERE salary > (
-    SELECT AVG(salary)
+    SELECT AVG(salary) 
     FROM employees
     WHERE department_id = e.department_id
 );
