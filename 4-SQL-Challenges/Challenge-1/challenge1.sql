@@ -14,4 +14,8 @@ WHERE j.job_title = 'Accountant';
 -- Always filter before applying MAX()/AVG() for accurate results(1. FROM → 2. WHERE → 3. GROUP BY → 4. SELECT (aggregates))
 
 
--- Q2
+-- Q2 Write a SQL statement to display the average salary of the employees who work as programmers (job_title).
+SELECT AVG(salary) AS avg_salary -- We use AVG() the aggregate function to find the average salary.
+FROM employees e
+JOIN jobs j ON e.job_id = j.job_id -- We connect employees and jobs using job_id to access the job_title.
+WHERE j.job_title = 'Programmer';
