@@ -19,3 +19,24 @@ SELECT AVG(salary) AS avg_salary -- We use AVG() the aggregate function to find 
 FROM employees e
 JOIN jobs j ON e.job_id = j.job_id -- We connect employees and jobs using job_id to access the job_title.
 WHERE j.job_title = 'Programmer';
+
+-- Q3 Write a SQL statement to display the Bonus all employees must be paid. Management
+-- decided to pay all employees a bonus calculated as 1% of their annual salary.
+SELECT first_name, last_name, salary, 
+    salary * 0.01 AS bonus -- We calculate the bonus as 1% of the annual salary.
+FROM employees;
+-- Key Takeaways:
+-- Very straightforward, we just multiply the salary by 0.01 to get the bonus.
+
+-- Q4 Write a SQL statement to "update" the salaries of all employees who work as
+-- programmers (job_title), management decided to increase their salary with 5.6%.
+UPDATE employees e
+SET e.salary = e.salary * 1.056
+WHERE e.job_id IN ( -- We use IN to filter employees who are programmers.
+    SELECT job_id FROM jobs 
+    WHERE job_title = 'Programmer'
+);
+-- Key Takeaways:
+-- This is an update operation -> it modifies data permanently in the database.
+-- Subqueries are often more efficient than joins for updates.
+-- Basically always use a subquery for updates where there is a 'WHERE' clause that filters based on another table.
